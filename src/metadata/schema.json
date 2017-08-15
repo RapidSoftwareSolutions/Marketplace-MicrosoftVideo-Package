@@ -130,7 +130,8 @@
           "type": "File",
           "info": "Video file link.",
           "required": true
-        }, {
+        },
+        {
           "name": "sensitivityLevel",
           "type": "Select",
           "options": ["low", "medium", "high"],
