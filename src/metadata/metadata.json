@@ -1,0 +1,254 @@
+{
+    "package": "MicrosoftVideo",
+    "tagline": "MicrosoftVideo API",
+    "description": "Microsoft Video API is a cloud-based API that provides advanced algorithms for tracking faces, detecting motion, and stabilizing video. These APIs allow you to build more personalized and intelligent apps by understanding and automatically transforming your video content.",
+    "image": "https:\/\/logo.clearbit.com\/nexosis.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-MicrosoftVideo-Package",
+    "keywords": [
+        "API",
+        "video",
+        "microsoft",
+        "detection"
+    ],
+    "accounts": {
+        "domain": "microsoft.com",
+        "credentials": [
+            "subscriptionKey"
+        ]
+    },
+    "blocks": [
+        {
+            "name": "getFaceDetection",
+            "description": "Detects and tracks human faces in a video and returns face locations.",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "url",
+                    "type": "File",
+                    "info": "Video file link.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getOperationResult",
+            "description": "Get operation result. If succeeded, this interface returns a JSON that includes time stamps and operation status.",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Operation id.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getVideoContent",
+            "description": "This interface is used for getting result video content. Currently only Stabilization outputs video content as result..",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Operation id.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "detectMotion",
+            "description": "Detects motion in a video, and returns the frame and duration of the motion that was captured.",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "url",
+                    "type": "File",
+                    "info": "Video file link.",
+                    "required": true
+                },
+                {
+                    "name": "sensitivityLevel",
+                    "type": "Select",
+                    "options": [
+                        "low",
+                        "medium",
+                        "high"
+                    ],
+                    "info": "Specify the detection sensitivity level: 'low', 'medium', 'high'. Higher sensitivity means more motions will be detected at a cost that more false alarms will be reported. The default value is 'medium'.",
+                    "required": false
+                },
+                {
+                    "name": "frameSamplingValue",
+                    "type": "Number",
+                    "info": "User may skip frames by setting this parameter. It can be used as a tradeoff between performance and cost, skipping frames may reduce processing time but result in worse detection performance. The default value is 1, meaning detecting motion for every frame. If set to 2, then the algorithm will detect one frame for every two frames. The upper bound is 20.",
+                    "required": false
+                },
+                {
+                    "name": "detectionZones",
+                    "type": "String",
+                    "info": "User can setup detection zones by passing in a string like \u201cdetectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5 |0.3,0.3;0.55,0.3;0.8,0.3; 0.8,0.55;0.8,0.8;0.55,0.8;0.3,0.8;0.3,0.55;| 0,0;1,0;1,1;0,1\u201d, each detection zone is separated by a \u201c|\u201d and each point is defined by a \u201cx,y\u201d pair and separated by a \u201c;\u201d. At most 8 detection zones are supported and each detection zone should be defined by at least 3 points and no more than 16 points. The default setting is \u201cdetectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5\u201d, i.e. the whole frame defined by an 8-point polygon.",
+                    "required": false
+                },
+                {
+                    "name": "detectLightChange",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Specify whether light change events should be detected. The default value is false.",
+                    "required": false
+                },
+                {
+                    "name": "mergeTimeThreshold",
+                    "type": "Number",
+                    "info": "Specify the threshold on whether successive motions should be merged together, if the interval between successive motions is <= mergeTimeThreshold, they will be merged. The default value is 0.0 and upper bound is 10.0.",
+                    "required": false
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "videoStabilizes",
+            "description": "Smooths and stabilizes a video.",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "url",
+                    "type": "File",
+                    "info": "Video file link.",
+                    "required": true
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "generateMotionThumbnail",
+            "description": "Generates a motion thumbnail from a video. The Video Thumbnail API provides an automatic summary for videos to let people see a preview or snapshot quickly. Selection of scenes from a video create a preview in form of a short video. ",
+            "args": [
+                {
+                    "name": "subscriptionKey",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. Found in your Cognitive Services accounts.",
+                    "required": true
+                },
+                {
+                    "name": "url",
+                    "type": "File",
+                    "info": "Video file link.",
+                    "required": true
+                },
+                {
+                    "name": "maxMotionThumbnailDurationInSecs",
+                    "type": "Number",
+                    "info": "Specifies maximum duration of output video (in seconds). The default value is 0, which indicates the duration will be automatically decided by the algorithm.",
+                    "required": false
+                },
+                {
+                    "name": "outputAudio",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Indicates whether output video should include audio track. The default value is true.",
+                    "required": false
+                },
+                {
+                    "name": "fadeInFadeOut",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Indicates whether output video should have fade in\/out effect during scene changes. The default value is true.",
+                    "required": false
+                }
+            ],
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
