@@ -1,11 +1,13 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/MicrosoftVideo/functions?utm_source=RapidAPIGitHub_MicrosoftVideoFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # MicrosoftVideo Package
 Microsoft Video API is a cloud-based API that provides advanced algorithms for tracking faces, detecting motion, and stabilizing video. These APIs allow you to build more personalized and intelligent apps by understanding and automatically transforming your video content.
-* Domain: microsoft.com
+* Domain: [microsoft.com](https://microsoft.com)
 * Credentials: subscriptionKey
 
 ## How to get credentials: 
-0. Item one 
-1. Item two
+1. Sign in [portal.azure.com](https://portal.azure.com).
+2. Add new API subscription.
  
 ## MicrosoftVideo.getFaceDetection
 Detects and tracks human faces in a video and returns face locations.
