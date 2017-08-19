@@ -41,7 +41,7 @@ Detects motion in a video, and returns the frame and duration of the motion that
 | subscriptionKey   | credentials| Subscription key which provides access to this API. Found in your Cognitive Services accounts.
 | url               | File       | Video file link.
 | sensitivityLevel  | Select     | Specify the detection sensitivity level: 'low', 'medium', 'high'. Higher sensitivity means more motions will be detected at a cost that more false alarms will be reported. The default value is 'medium'.
-| frameSamplingValue| Number     | User can setup detection zones by passing in a string. The default setting is “detectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5”, i.e. the whole frame defined by an 8-point polygon. 
+| frameSamplingValue| Number     | User can setup detection zones by passing in a string. The default setting is ```detectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5```, i.e. the whole frame defined by an 8-point polygon. 
 | detectLightChange | Select     | Specify whether light change events should be detected. The default value is false.
 | mergeTimeThreshold| Number     | Specify the threshold on whether successive motions should be merged together, if the interval between successive motions is <= mergeTimeThreshold, they will be merged. The default value is 0.0 and upper bound is 10.0.
 
