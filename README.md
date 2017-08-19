@@ -41,10 +41,11 @@ Detects motion in a video, and returns the frame and duration of the motion that
 | subscriptionKey   | credentials| Subscription key which provides access to this API. Found in your Cognitive Services accounts.
 | url               | File       | Video file link.
 | sensitivityLevel  | Select     | Specify the detection sensitivity level: 'low', 'medium', 'high'. Higher sensitivity means more motions will be detected at a cost that more false alarms will be reported. The default value is 'medium'.
-| frameSamplingValue| Number     | User may skip frames by setting this parameter. It can be used as a tradeoff between performance and cost, skipping frames may reduce processing time but result in worse detection performance. The default value is 1, meaning detecting motion for every frame. If set to 2, then the algorithm will detect one frame for every two frames. The upper bound is 20.
-| detectionZones    | String     | User can setup detection zones by passing in a string like `detectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5 \| 0.3,0.3;0.55,0.3;0.8,0.3; 0.8,0.55;0.8,0.8;0.55,0.8;0.3,0.8;0.3,0.55;\| 0,0;1,0;1,1;0,1`, each detection zone is separated by a `\|` and each point is defined by a `x,y` pair and separated by a `;`. At most 8 detection zones are supported and each detection zone should be defined by at least 3 points and no more than 16 points. The default setting is `detectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5`, i.e. the whole frame defined by an 8-point polygon.
+| frameSamplingValue| Number     | User can setup detection zones by passing in a string. The default setting is “detectionZones=0,0;0.5,0;1,0;1,0.5;1,1;0.5,1;0,1;0,0.5”, i.e. the whole frame defined by an 8-point polygon. 
 | detectLightChange | Select     | Specify whether light change events should be detected. The default value is false.
 | mergeTimeThreshold| Number     | Specify the threshold on whether successive motions should be merged together, if the interval between successive motions is <= mergeTimeThreshold, they will be merged. The default value is 0.0 and upper bound is 10.0.
+
+[Read more](https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e3a)
 
 ## MicrosoftVideo.videoStabilizes
 Smooths and stabilizes a video.
